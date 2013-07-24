@@ -163,11 +163,10 @@ public class SettingsManager {
 	}
 
 	public static World getGameWorld(int game) {
-		if (SettingsManager.getInstance().getSystemConfig().getString("sg-system.arenas." + game + ".world") == null) {
-			//LobbyManager.getInstance().error(true);
+		if (SettingsManager.getInstance().getSystemConfig().getString("sg-system.arenas." + game + ".world") == null)
 			return null;
-
-		}
+			//LobbyManager.getInstance().error(true);
+		
 		return p.getServer().getWorld(SettingsManager.getInstance().getSystemConfig().getString("sg-system.arenas." + game + ".world"));
 	}
 
@@ -234,7 +233,6 @@ public class SettingsManager {
 		try {
 			system.save(f2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -243,7 +241,6 @@ public class SettingsManager {
 		try {
 			spawns.save(f);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -252,7 +249,6 @@ public class SettingsManager {
 		try {
 			kits.save(f3);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -261,7 +257,6 @@ public class SettingsManager {
 		try {
 			messages.save(f4);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -270,7 +265,6 @@ public class SettingsManager {
 		try {
 			chest.save(f5);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -279,16 +273,13 @@ public class SettingsManager {
 		return spawns.getInt("spawns." + gameid + ".count");
 	}
 
-
-
-
 	public Location getLobbySpawn() {
 		try{
 			return new Location(Bukkit.getWorld(system.getString("sg-system.lobby.spawn.world")),
 				system.getInt("sg-system.lobby.spawn.x"),
 				system.getInt("sg-system.lobby.spawn.y"),
 				system.getInt("sg-system.lobby.spawn.z"));
-		}catch(Exception e){
+		} catch(Exception e){
 			return null;
 		}
 	}
@@ -325,7 +316,6 @@ public class SettingsManager {
 	}
 
 	public static String getSqlPrefix() {
-
 		return getInstance().getConfig().getString("sql.prefix");
 	}
 
